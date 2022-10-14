@@ -13,6 +13,18 @@ public class CoreCompetency {
         nextId++;
     }
 
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    public int getId() {
+        return id;
+    }
+
     public CoreCompetency(String value) {
         this();
         this.value = value;
