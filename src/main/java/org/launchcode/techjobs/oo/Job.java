@@ -10,6 +10,10 @@ public class Job {
 
     private String name;
 
+    public Job(String test1name) {
+    }
+
+
     public int getId() {
         return id;
     }
