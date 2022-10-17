@@ -6,8 +6,7 @@ import org.junit.runners.JUnit4;
 import org.launchcode.techjobs.oo.*;
 
 import static junit.framework.TestCase.assertTrue;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.*;
 
 /**
  * Created by LaunchCode
@@ -49,12 +48,18 @@ Job test_job3;
 
 
     }
-
+ //The text said to use equals and get a false.  Tried writing test_job4.getId() != test_job5.getId() and did not work
     @Test
     public void testJobsForEquality (){
         Job test_job4 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
         Job test_job5 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
 
+        assertNotEquals(test_job4.getId() == test_job5.getId(), true);
+
+        //assertFalse(test_job4.getId(), test_job5.getId());
+
+        //below indicates that the ids are in fact unique despite all the parameters being identical, but how to accurately write the test?
+        //assertEquals(test_job4.getId(), test_job5.getId());
     }
 
 
