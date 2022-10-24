@@ -8,15 +8,21 @@ public class Job {
     private int id;
     private static int nextId = 1;
 
+    public Job() {
+        id = nextId;
+        nextId++;
+    }
     private String name;
 
-    public Job(String test1name) {
-    }
+
 
 
     public int getId() {
+
         return id;
     }
+
+
 
     @Override
     public boolean equals(Object o) {
@@ -28,46 +34,57 @@ public class Job {
 
     @Override
     public int hashCode() {
+
         return Objects.hash(id);
     }
 
     public String getName() {
+
         return name;
     }
 
     public void setName(String name) {
+
         this.name = name;
     }
 
     public Employer getEmployer() {
+
         return employer;
     }
 
     public void setEmployer(Employer employer) {
+
         this.employer = employer;
     }
 
     public Location getLocation() {
+
         return location;
     }
 
     public void setLocation(Location location) {
+
         this.location = location;
     }
 
     public PositionType getPositionType() {
+
         return positionType;
     }
 
     public void setPositionType(PositionType positionType) {
+
         this.positionType = positionType;
     }
 
     public CoreCompetency getCoreCompetency() {
+
         return coreCompetency;
     }
 
     public void setCoreCompetency(CoreCompetency coreCompetency) {
+
         this.coreCompetency = coreCompetency;
     }
 
@@ -78,10 +95,7 @@ public class Job {
 
 
 
-    public Job() {
-        id = nextId;
-        nextId++;
-    }
+
 
     public Job (String aName, Employer aEmployer, Location aLocation, PositionType aPositionType, CoreCompetency aCoreCompetency) {
 
@@ -95,20 +109,20 @@ public class Job {
 
         public String toString(){
         String employerString = employer.toString();
-        if(employerString == ""){
+        if(Objects.equals(employerString, "")){
             employerString = "Data not available";
         }
 
         String locationString = location.toString();
-            if(locationString == ""){
+            if(Objects.equals(locationString, "")){
                 locationString = "Data not available";
             }
         String positionTypeString = positionType.toString();
-            if(positionTypeString == ""){
+            if(Objects.equals(positionTypeString, "")){
                 positionTypeString = "Data not available";
             }
         String coreCompetencyString = coreCompetency.toString();
-            if(coreCompetencyString == ""){
+            if(Objects.equals(coreCompetencyString, "")){
                 coreCompetencyString = "Data not available";
             }
         String formattedJobString = new String('\n'+ "ID: "+ getId()+ '\n'+"Name: "+name +'\n' + "Employer: "+employerString +'\n' +"Location: "+ locationString+ '\n' + "Position Type: "+ positionTypeString + '\n' + "Core Competency: "+ coreCompetencyString +'\n');

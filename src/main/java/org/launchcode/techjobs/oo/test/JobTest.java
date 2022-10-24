@@ -23,9 +23,9 @@ public class JobTest {
 
     @Test
     public void testSettingJobId() {
-        Job test_job1 = new Job("Test1name");
-        Job test_job2 = new Job("Test2name");
-        assertNotEquals(test_job1.getId() == test_job2.getId(), false);
+        Job test_job1 = new Job("Test1name", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        Job test_job2 = new Job("Test2name", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        assertNotEquals(test_job1.getId() == test_job2.getId(), true);
     }
 
 Job test_job3;
@@ -33,18 +33,18 @@ Job test_job3;
     @Test
     public void testJobConstructorSetsAllFields (){
         Job test_job3 =  new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        assertTrue(test_job3.getName() instanceof String);
-        assertTrue(test_job3.getEmployer() instanceof Employer);
-        assertTrue(test_job3.getLocation() instanceof Location);
-        assertTrue(test_job3.getPositionType() instanceof PositionType);
-        assertTrue(test_job3.getCoreCompetency() instanceof CoreCompetency);
+        Assert.assertTrue(test_job3.getName() instanceof String);
+        Assert.assertTrue(test_job3.getEmployer() instanceof Employer);
+        Assert.assertTrue(test_job3.getLocation() instanceof Location);
+        Assert.assertTrue(test_job3.getPositionType() instanceof PositionType);
+        Assert.assertTrue(test_job3.getCoreCompetency() instanceof CoreCompetency);
 
-        assertEquals("Product tester", test_job3.getName());
+        Assert.assertEquals("Product tester", test_job3.getName());
 
-        assertEquals("ACME", test_job3.getEmployer().getValue());
-        assertEquals("Desert", test_job3.getLocation().getValue());
-        assertEquals("Quality control", test_job3.getPositionType().getValue());
-        assertEquals("Persistence", test_job3.getCoreCompetency().getValue());
+        Assert.assertEquals("ACME", test_job3.getEmployer().getValue());
+        Assert.assertEquals("Desert", test_job3.getLocation().getValue());
+        Assert.assertEquals("Quality control", test_job3.getPositionType().getValue());
+        Assert.assertEquals("Persistence", test_job3.getCoreCompetency().getValue());
 
 
     }
@@ -69,9 +69,9 @@ Job test_job3;
 
     int lengthOfJob = charsOfJob.length();
     Character lastChar = charsOfJob.charAt(lengthOfJob-1);
-    Character newLine = '\n';
-    assertEquals(newLine, firstChar);
-    assertEquals(newLine, lastChar);
+    //Character newLine = '\n';
+    Assert.assertEquals('\n', firstChar.charValue());
+    Assert.assertEquals('\n', lastChar.charValue());
     }
             //When passed a Job object, it should return a string that contains a blank line before and after the job information.
 
@@ -99,8 +99,8 @@ Job test_job9 = new Job("Developer", new Employer("Garmin"), new Location(""), n
     String expectedJob9 = '\n' + "ID: "+ test_job9.getId()+ '\n'+"Name: "+ test_job9.getName() + '\n'+"Employer: "+ test_job9.getEmployer()+'\n'+"Location: Data not available"+ '\n'+ "Position Type: " + test_job9.getPositionType()+'\n'+"Core Competency: "+ test_job9.getCoreCompetency()+'\n';
     assertEquals(expectedJob8, stringOfJob8);
 
-//If a field is empty, the method should add, “Data not available” after the label.
+
 }
 
-//bonus test If a Job object ONLY contains data for the id field, the method should return, “OOPS! This job does not seem to exist.”
+
 }
